@@ -3,8 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        div{
+            overflow: hidden;
+        }
+        .zz{
+            font-weight: bolder;
+        }
+        .pp{
+            font-weight: bolder;
+            color: #999;
+        }
+        .fleft{
+            float: left;
+        }
+    </style>
 </head>
 <body>
-你好世界！！！
+<div>
+    <span class="zz fleft"></span>
+    <span class="pp fleft">||||||||||||||||||||</span>
+    <span class="num fleft">0</span>
+    <span class="fleft">%</span>
+</div>
 </body>
+<script>
+    let timer = setInterval(function () {
+        let num = parseInt(document.getElementsByClassName("num")[0].innerHTML);
+        if(num<100){
+            num += 5;
+            let fornum = num/5;
+            let ed = '';
+            let ing = '';
+            for(let i=0;i<fornum;i++){
+                ed += '|'
+            }
+            for(let i=0;i<20 - fornum;i++){
+                ing += '|'
+            }
+            document.getElementsByClassName("zz")[0].innerHTML=ed;
+            document.getElementsByClassName("pp")[0].innerHTML=ing;
+            document.getElementsByClassName("num")[0].innerHTML=num;
+        }else {
+            clearInterval(timer)
+        }
+    },500)
+</script>
 </html>
